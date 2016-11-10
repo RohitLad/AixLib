@@ -20,6 +20,14 @@ partial model PartialVDI6007
   parameter Boolean withLongwave=true
     "Set to true to include longwave radiation exchange"
     annotation(choices(checkBox = true));
+  parameter Modelica.SIunits.Emissivity aWin
+    "Coefficient of absorption of the windows";
+  parameter Modelica.SIunits.Emissivity eWin
+    "Coefficient of emission of the windows";
+  parameter Modelica.SIunits.CoefficientOfHeatTransfer alphaWinOut
+    "Windows' convective coefficient of heat transfer (outdoor)";
+  parameter Modelica.SIunits.CoefficientOfHeatTransfer alphaRadWin
+    "Coefficient of heat transfer for linearized radiation for windows";
 
   Modelica.SIunits.Temperature TEqWall[n] "Equivalent wall temperature";
   Modelica.SIunits.Temperature TEqWin[n] "Equivalent window temperature";

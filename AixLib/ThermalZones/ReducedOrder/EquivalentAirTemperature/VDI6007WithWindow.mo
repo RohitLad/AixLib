@@ -3,15 +3,6 @@ model VDI6007WithWindow
   "Equivalent air temperature as defined in VDI 6007 Part 1 with modifications"
   extends BaseClasses.PartialVDI6007;
 
-  parameter Modelica.SIunits.Emissivity aWin
-    "Coefficient of absorption of the windows";
-  parameter Modelica.SIunits.Emissivity eWin
-    "Coefficient of emission of the windows";
-  parameter Modelica.SIunits.CoefficientOfHeatTransfer alphaWinOut
-    "Windows' convective coefficient of heat transfer (outdoor)";
-  parameter Modelica.SIunits.CoefficientOfHeatTransfer alphaRadWin
-    "Coefficient of heat transfer for linearized radiation for windows";
-
   Modelica.SIunits.TemperatureDifference delTEqLWWin
     "Equivalent long wave temperature for windows";
   Modelica.SIunits.TemperatureDifference delTEqSWWin[n]

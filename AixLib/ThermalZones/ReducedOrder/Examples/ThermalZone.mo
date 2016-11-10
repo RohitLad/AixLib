@@ -8,6 +8,7 @@ model ThermalZone "Illustrates the use of ThermalZone"
     ROM(extWallRC(thermCapExt(each der_T(fixed=true))), intWallRC(thermCapInt(
     each der_T(fixed=true)))),
     energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+    redeclare EquivalentAirTemperature.VDI6007 eqAirTempWall,
     T_start=293.15)
     "Thermal zone"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));

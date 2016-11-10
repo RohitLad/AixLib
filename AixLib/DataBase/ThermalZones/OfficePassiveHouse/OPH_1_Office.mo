@@ -7,7 +7,7 @@ record OPH_1_Office "Office zone of office building"
     alphaRad = 5,
     lat = 0.87266462599716,
     nOrientations = 5,
-    AWin = {108.5, 19.0, 108.5, 19.0, 0},
+    AWin = {0, 0, 0, 0, 0},
     ATransparent = {108.5, 19.0, 108.5, 19.0, 0},
     alphaWin = 2.7,
     RWin = 0.017727777777,

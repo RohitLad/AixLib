@@ -36,8 +36,11 @@ model ThermalZone
     "Correction factor for solar transmission"
     annotation (Placement(transformation(extent={{-12,37},{0,49}})),
     choicesAllMatching=true);
-  EquivalentAirTemperature.VDI6007WithWindow eqAirTempWall(
-    withLongwave=true,
+  replaceable EquivalentAirTemperature.VDI6007WithWindow eqAirTempWall if
+       (sum(zoneParam.AExt) + sum(zoneParam.AWin)) > 0
+    constrainedby
+    AixLib.ThermalZones.ReducedOrder.EquivalentAirTemperature.BaseClasses.PartialVDI6007
+    (withLongwave=true,
     aWin=0.03,
     eExt=0.9,
     eWin=0.9,
@@ -50,9 +53,9 @@ model ThermalZone
     final alphaWinOut=zoneParam.alphaWinOut,
     final alphaRadWin=zoneParam.alphaRadWin,
     final aExt=zoneParam.aExt,
-    final TGro=zoneParam.TSoil) if (sum(zoneParam.AExt) + sum(zoneParam.AWin)) > 0
+    final TGro=zoneParam.TSoil)
     "Computes equivalent air temperature"
-    annotation (Placement(transformation(extent={{-36,-2},{-16,18}})));
+    annotation (Placement(transformation(extent={{-36,-2},{-16,18}})),choicesAllMatching=true);
   Modelica.Blocks.Sources.Constant constSunblindWall[zoneParam.nOrientations](
     each k=0)
     "Sets sunblind signal to zero (open)"
